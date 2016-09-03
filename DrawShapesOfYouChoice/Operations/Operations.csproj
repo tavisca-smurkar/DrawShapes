@@ -41,6 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CircleOperation.cs" />
+    <Compile Include="ICircleOperation.cs" />
     <Compile Include="IRectangleOperation.cs" />
     <Compile Include="LineOperation.cs" />
     <Compile Include="ILineOperation.cs" />
