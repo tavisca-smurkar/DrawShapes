@@ -80,7 +80,7 @@
       <Name>EntityFactory</Name>
     </ProjectReference>
     <ProjectReference Include="..\OperationFactory\OperationFactory.csproj">
-      <Project>{77C7776D-1034-4BF2-80DC-6B464CE76005}</Project>
+      <Project>{77c7776d-1034-4bf2-80dc-6b464ce76005}</Project>
       <Name>OperationFactory</Name>
     </ProjectReference>
     <ProjectReference Include="..\Operations\Operations.csproj">

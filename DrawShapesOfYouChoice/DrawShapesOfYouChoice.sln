@@ -5,7 +5,7 @@ VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DrawShapesOfYouChoice", "DrawShapesOfYouChoice\DrawShapesOfYouChoice.csproj", "{03AA7A63-4E73-4188-900B-5214BEE8E92D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestForLine.test", "TestForLine.test\TestForLine.test.csproj", "{FFD8A70C-072B-48C8-A09A-0E3C94E88AEE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShapeTest.test", "TestForLine.test\ShapeTest.test.csproj", "{FFD8A70C-072B-48C8-A09A-0E3C94E88AEE}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entities", "Entities\Entities.csproj", "{E0C93351-3777-48E1-8C89-3E0828D5BDC0}"
 EndProject

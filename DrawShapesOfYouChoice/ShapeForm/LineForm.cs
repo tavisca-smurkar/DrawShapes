@@ -34,6 +34,7 @@ namespace ShapeForm
             Graphics graphics = linePanel.CreateGraphics();
             Pen pen = new Pen(Color.Red);
             graphics.DrawLine(pen, line.pointOneXCoordinate, line.pointOneYCoordinate, line.pointTwoXCoordinate, line.pointTwoYCoordinate);
+            
         }
         private void linePanel_Paint(object sender, PaintEventArgs e)
         {

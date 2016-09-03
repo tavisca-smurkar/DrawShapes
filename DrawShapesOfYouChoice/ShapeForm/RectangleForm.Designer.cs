@@ -1,6 +1,6 @@
 ﻿namespace ShapeForm
 {
-    partial class LineForm
+    partial class RectangleForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,32 +28,30 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.linePanel = new System.Windows.Forms.Panel();
+            this.reactanglePanel = new System.Windows.Forms.Panel();
             this.SuspendLayout();
             // 
-            // linePanel
+            // reactanglePanel
             // 
-            this.linePanel.Location = new System.Drawing.Point(12, 12);
-            this.linePanel.Name = "linePanel";
-            this.linePanel.Size = new System.Drawing.Size(699, 460);
-            this.linePanel.TabIndex = 0;
-            this.linePanel.Paint += new System.Windows.Forms.PaintEventHandler(this.linePanel_Paint);
+            this.reactanglePanel.Location = new System.Drawing.Point(12, 12);
+            this.reactanglePanel.Name = "reactanglePanel";
+            this.reactanglePanel.Size = new System.Drawing.Size(903, 533);
+            this.reactanglePanel.TabIndex = 0;
             // 
-            // LineForm
+            // RectangleForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(723, 484);
-            this.Controls.Add(this.linePanel);
-            this.Name = "LineForm";
-            this.Text = "LineForm";
-            this.Load += new System.EventHandler(this.LineForm_Load);
+            this.ClientSize = new System.Drawing.Size(927, 557);
+            this.Controls.Add(this.reactanglePanel);
+            this.Name = "RectangleForm";
+            this.Text = "RectangleForm";
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Panel linePanel;
+        private System.Windows.Forms.Panel reactanglePanel;
     }
 }

@@ -36,7 +36,10 @@ namespace DrawShapesOfYouChoice
                 {
                     switch (choice)
                     {
+                        //Line
                         case 1:
+
+                            //Point One
                             Line line = LineFactory.GetLine();
                             Console.WriteLine("Enter the coordinates of first point");
 
@@ -68,7 +71,7 @@ namespace DrawShapesOfYouChoice
                                 line.pointOneYCoordinate = float.Parse(yCoordinate);
                             }
 
-
+                            //Second One
                             Console.WriteLine("Enter the coordinates of second point");
 
                             Console.WriteLine("Enter the positive x coordinate (number).");
@@ -106,10 +109,78 @@ namespace DrawShapesOfYouChoice
                             break;
 
 
+                        //Rectangle
+                        case 2:
 
+                            //Point One
+                            RecTangle rectangle = RectangleFactory.GetRectangle();
+                            Console.WriteLine("Enter the coordinates of first point");
 
+                            Console.WriteLine("Enter the positive x coordinate (number).");
+                            xCoordinateRectanglePointOneLabel:
+                            String xCoordinateOfRectangle = Console.ReadLine();
+                            validPointCoordinate = NumberValidator.ValidateNumber(xCoordinateOfRectangle);
+                            if (!validPointCoordinate)
+                            {
+                                logger.Error("X coordinate of first point of the rectangle is not valid !");
+                                goto xCoordinateRectanglePointOneLabel;
+                            }
+                            else
+                            {
+                                rectangle.pointOneXCoordinate = float.Parse(xCoordinateOfRectangle);
+                            }
 
+                            Console.WriteLine("Enter the positive y coordinate (number).");
+                            yCoordinateRectanglePointOneLabel:
+                            String yCoordinateOfRectangle = Console.ReadLine();
+                            validPointCoordinate = NumberValidator.ValidateNumber(yCoordinateOfRectangle);
+                            if (!validPointCoordinate)
+                            {
+                                logger.Error("y coordinate of first point of the rectangle is not valid !");
+                                goto yCoordinateRectanglePointOneLabel;
+                            }
+                            else
+                            {
+                                rectangle.pointOneYCoordinate = float.Parse(yCoordinateOfRectangle);
+                            }
 
+                            //Second One
+                            Console.WriteLine("Enter the coordinates of second point");
+
+                            Console.WriteLine("Enter the positive x coordinate (number).");
+                            xCoordinateRectanglePointTwoLabel:
+                            xCoordinateOfRectangle = Console.ReadLine();
+                            validPointCoordinate = NumberValidator.ValidateNumber(xCoordinateOfRectangle);
+                            if (!validPointCoordinate)
+                            {
+                                logger.Error("X coordinate of second point of the rectangle is not valid !");
+                                goto xCoordinateRectanglePointTwoLabel;
+                            }
+                            else
+                            {
+                                rectangle.pointTwoXCoordinate = float.Parse(xCoordinateOfRectangle);
+                            }
+
+                            Console.WriteLine("Enter the positive y coordinate (number).");
+                            yCoordinateRectanglePointTwoLabel:
+                            yCoordinateOfRectangle = Console.ReadLine();
+                            validPointCoordinate = NumberValidator.ValidateNumber(yCoordinateOfRectangle);
+                            if (!validPointCoordinate)
+                            {
+                                logger.Error("y coordinate of second point of the rectangle is not valid !");
+                                goto yCoordinateRectanglePointTwoLabel;
+                            }
+                            else
+                            {
+                                rectangle.pointTwoYCoordinate = float.Parse(yCoordinateOfRectangle);
+                            }
+
+                            IRectangleOperation rectangleOperation = RectangleOperationFactory.GetRectangleOperation();
+                            rectangleOperation.Draw(rectangle);
+                            logger.Info("Reactangle drawn Successfully");
+
+                            break;
+                            
                     }
                 }
                 else
@@ -117,11 +188,9 @@ namespace DrawShapesOfYouChoice
                     logger.Error("Invalid Choice");
                     goto tryAgain;
                 }
-
-
-               
-                
+  
             }
+
             catch(Exception ae)
             {
                 logger.Error(ae.Message);

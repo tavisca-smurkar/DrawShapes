@@ -5,7 +5,7 @@ using EntityFactory;
 using Operations;
 using OperationFactory;
 
-namespace TestForLine.test
+namespace ShapeTest.test
 {
     [TestClass]
     public class TestForLine
