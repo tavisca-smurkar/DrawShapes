@@ -42,6 +42,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CircleForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CircleForm.Designer.cs">
+      <DependentUpon>CircleForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="LineForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -57,6 +63,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="CircleForm.resx">
+      <DependentUpon>CircleForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="LineForm.resx">
       <DependentUpon>LineForm.cs</DependentUpon>
     </EmbeddedResource>

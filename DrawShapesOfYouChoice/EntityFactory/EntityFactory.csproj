@@ -49,6 +49,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CircleFactory.cs" />
     <Compile Include="LineFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RectangleFactory.cs" />
