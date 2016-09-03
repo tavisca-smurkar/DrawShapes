@@ -41,9 +41,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IRectangleOperation.cs" />
     <Compile Include="LineOperation.cs" />
     <Compile Include="ILineOperation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RectangleOperation.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Entities\Entities.csproj">
@@ -51,7 +53,7 @@
       <Name>Entities</Name>
     </ProjectReference>
     <ProjectReference Include="..\ShapeForm\ShapeForm.csproj">
-      <Project>{84AB221C-951D-4CDC-A631-6660C9DAFF4B}</Project>
+      <Project>{84ab221c-951d-4cdc-a631-6660c9daff4b}</Project>
       <Name>ShapeForm</Name>
     </ProjectReference>
   </ItemGroup>

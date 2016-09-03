@@ -36,6 +36,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Drawing" />
   </ItemGroup>
   <Choose>
     <When Condition="('$(VisualStudioVersion)' == '10.0' or '$(VisualStudioVersion)' == '') and '$(TargetFrameworkVersion)' == 'v3.5'">
@@ -45,13 +46,16 @@
     </When>
     <Otherwise>
       <ItemGroup>
-        <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework" />
+        <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework">
+          <Private>False</Private>
+        </Reference>
       </ItemGroup>
     </Otherwise>
   </Choose>
   <ItemGroup>
     <Compile Include="TestForLine.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TestForRectangle.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Entities\Entities.csproj">
@@ -63,11 +67,11 @@
       <Name>EntityFactory</Name>
     </ProjectReference>
     <ProjectReference Include="..\OperationFactory\OperationFactory.csproj">
-      <Project>{77C7776D-1034-4BF2-80DC-6B464CE76005}</Project>
+      <Project>{77c7776d-1034-4bf2-80dc-6b464ce76005}</Project>
       <Name>OperationFactory</Name>
     </ProjectReference>
     <ProjectReference Include="..\Operations\Operations.csproj">
-      <Project>{704AA6B9-2FCD-44FE-8A36-505DEF209FB2}</Project>
+      <Project>{704aa6b9-2fcd-44fe-8a36-505def209fb2}</Project>
       <Name>Operations</Name>
     </ProjectReference>
   </ItemGroup>
