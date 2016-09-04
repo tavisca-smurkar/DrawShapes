@@ -53,6 +53,7 @@
     <Compile Include="LineOperationFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RectangleOperationFactory.cs" />
+    <Compile Include="TriangleOperationFactory.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Operations\Operations.csproj">

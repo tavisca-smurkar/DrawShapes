@@ -44,10 +44,12 @@
     <Compile Include="CircleOperation.cs" />
     <Compile Include="ICircleOperation.cs" />
     <Compile Include="IRectangleOperation.cs" />
+    <Compile Include="ITriangleOperation.cs" />
     <Compile Include="LineOperation.cs" />
     <Compile Include="ILineOperation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RectangleOperation.cs" />
+    <Compile Include="TriangleOperation.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Entities\Entities.csproj">
