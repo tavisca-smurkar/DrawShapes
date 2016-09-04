@@ -61,6 +61,12 @@
     <Compile Include="RectangleForm.Designer.cs">
       <DependentUpon>RectangleForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="TriangleForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TriangleForm.Designer.cs">
+      <DependentUpon>TriangleForm.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="CircleForm.resx">
@@ -71,6 +77,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="RectangleForm.resx">
       <DependentUpon>RectangleForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TriangleForm.resx">
+      <DependentUpon>TriangleForm.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

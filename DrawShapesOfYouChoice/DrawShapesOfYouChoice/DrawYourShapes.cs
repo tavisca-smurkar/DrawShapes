@@ -11,6 +11,8 @@ using Validation;
 using log4net;
 using log4net.Config;
 using System.Windows.Forms;
+using System.Drawing;
+
 namespace DrawShapesOfYouChoice
 {
     class DrawYourShapes
@@ -23,7 +25,8 @@ namespace DrawShapesOfYouChoice
                 Console.WriteLine("1. Line");
                 Console.WriteLine("2. Rectangle");
                 Console.WriteLine("3. Circle");
-                try
+                Console.WriteLine("4. Triangle");
+            try
                 {
                     XmlConfigurator.Configure();
                     int choice = 0;
@@ -183,12 +186,16 @@ namespace DrawShapesOfYouChoice
                                 break;
 
                         case 3:
+
+                            //Circle
                             Circle cirle = CircleFactory.GetCircle();
                             tryCircle:
                             float centreXCoordinate = 0;
                             float centreYCoordinate = 0;
                             float radiusOfCircle = 0;
 
+
+                            //Centre of Circle
                             Console.WriteLine("Enter the X coordinate of Centre");
                             xCentreLabel:
                             string xCoordinateOfCentre = Console.ReadLine();
@@ -217,7 +224,7 @@ namespace DrawShapesOfYouChoice
                                 centreYCoordinate = float.Parse(yCoordinateOfCentre);
                             }
 
-
+                            //Radius
                             Console.WriteLine("Enter the radius of the circle.");
                             radiusLabel:
                             string radius = Console.ReadLine();
@@ -248,6 +255,103 @@ namespace DrawShapesOfYouChoice
                                 circleOperation.Draw(cirle);
                                 logger.Info("Circle drawn Successfully");
                             }
+                            break;
+
+
+
+                        case 4:
+
+                            //Triangle
+                            Triangle triangle = Trianglefactory.GetTriangle();
+
+                            //First point 
+                            Console.WriteLine("Enter the X coordinate of first point of the triangle");
+                            xCoordinateTrianglePointOneLabel:
+                            string xCoordinateOfPointOneOfTriangle = Console.ReadLine();
+                            validPointCoordinate = NumberValidator.ValidateNumber(xCoordinateOfPointOneOfTriangle);
+                            if(!validPointCoordinate)
+                            {
+                                logger.Error("X coordinate of first point of triangle is not valid");
+                                goto xCoordinateTrianglePointOneLabel;
+                            }
+
+                 
+                            Console.WriteLine("Enter the Y coordinate of first point of the triangle");
+                            yCoordinateTrianglePointOneLabel:
+                            string yCoordinateOfPointOneOfTriangle = Console.ReadLine();
+                            validPointCoordinate = NumberValidator.ValidateNumber(yCoordinateOfPointOneOfTriangle);
+                            if (!validPointCoordinate)
+                            {
+                                logger.Error("Y coordinate of first point of triangle is not valid");
+                                goto yCoordinateTrianglePointOneLabel;
+                            }
+
+                            if(validPointCoordinate)
+                            {
+                                triangle.pointOne = new Point(int.Parse(xCoordinateOfPointOneOfTriangle),int.Parse(yCoordinateOfPointOneOfTriangle));
+                            }
+
+
+
+                            //Second point 
+                            Console.WriteLine("Enter the X coordinate of second point of the triangle");
+                            xCoordinateTrianglePointTwoLabel:
+                            string xCoordinateOfPointTwoOfTriangle = Console.ReadLine();
+                            validPointCoordinate = NumberValidator.ValidateNumber(xCoordinateOfPointTwoOfTriangle);
+                            if (!validPointCoordinate)
+                            {
+                                logger.Error("X coordinate of second point of triangle is not valid");
+                                goto xCoordinateTrianglePointTwoLabel;
+                            }
+
+
+                            Console.WriteLine("Enter the Y coordinate of second point of the triangle");
+                            yCoordinateTrianglePointTwoLabel:
+                            string yCoordinateOfPointTwoOfTriangle = Console.ReadLine();
+                            validPointCoordinate = NumberValidator.ValidateNumber(yCoordinateOfPointTwoOfTriangle);
+                            if (!validPointCoordinate)
+                            {
+                                logger.Error("Y coordinate of second point of triangle is not valid");
+                                goto yCoordinateTrianglePointTwoLabel;
+                            }
+
+                            if (validPointCoordinate)
+                            {
+                                triangle.pointTwo = new Point(int.Parse(xCoordinateOfPointTwoOfTriangle), int.Parse(yCoordinateOfPointTwoOfTriangle));
+                            }
+
+
+
+                            //Three point 
+                            Console.WriteLine("Enter the X coordinate of third point of the triangle");
+                            xCoordinateTrianglePointThreeLabel:
+                            string xCoordinateOfPointThreeOfTriangle = Console.ReadLine();
+                            validPointCoordinate = NumberValidator.ValidateNumber(xCoordinateOfPointThreeOfTriangle);
+                            if (!validPointCoordinate)
+                            {
+                                logger.Error("X coordinate of third point of triangle is not valid");
+                                goto xCoordinateTrianglePointThreeLabel;
+                            }
+
+
+                            Console.WriteLine("Enter the Y coordinate of third point of the triangle");
+                            yCoordinateTrianglePointThreeLabel:
+                            string yCoordinateOfPointThreeOfTriangle = Console.ReadLine();
+                            validPointCoordinate = NumberValidator.ValidateNumber(yCoordinateOfPointThreeOfTriangle);
+                            if (!validPointCoordinate)
+                            {
+                                logger.Error("Y coordinate of third point of triangle is not valid");
+                                goto yCoordinateTrianglePointThreeLabel;
+                            }
+
+                            if (validPointCoordinate)
+                            {
+                                triangle.pointThree = new Point(int.Parse(xCoordinateOfPointThreeOfTriangle), int.Parse(yCoordinateOfPointThreeOfTriangle));
+                            }
+                            
+                            ITriangleOperation triangleOperation = TriangleOperationFactory.GetTriangleOperation();
+                            triangleOperation.Draw(triangle);
+                            logger.Info("Triangle drawn Successfully");
                             break;
 
                         }
