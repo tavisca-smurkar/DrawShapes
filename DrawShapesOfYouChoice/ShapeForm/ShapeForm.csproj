@@ -48,6 +48,12 @@
     <Compile Include="CircleForm.Designer.cs">
       <DependentUpon>CircleForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="HexagonForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HexagonForm.Designer.cs">
+      <DependentUpon>HexagonForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="LineForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -71,6 +77,9 @@
   <ItemGroup>
     <EmbeddedResource Include="CircleForm.resx">
       <DependentUpon>CircleForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HexagonForm.resx">
+      <DependentUpon>HexagonForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LineForm.resx">
       <DependentUpon>LineForm.cs</DependentUpon>

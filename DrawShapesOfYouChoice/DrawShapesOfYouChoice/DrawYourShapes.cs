@@ -26,12 +26,21 @@ namespace DrawShapesOfYouChoice
                 Console.WriteLine("2. Rectangle");
                 Console.WriteLine("3. Circle");
                 Console.WriteLine("4. Triangle");
+                Console.WriteLine("5. Hexagon");
             try
                 {
                     XmlConfigurator.Configure();
                     int choice = 0;
                     bool validPointCoordinate = false;
                     bool validChoice = int.TryParse(Console.ReadLine(), out choice);
+                    
+                if(choice==0 || choice >5)
+                {
+                    logger.Error("Invalid choice");
+                    goto tryAgain;
+                }
+
+
 
                     //IF choice is valid then draw the shape
 
@@ -185,7 +194,7 @@ namespace DrawShapesOfYouChoice
 
                                 break;
 
-                        case 3:
+                            case 3:
 
                             //Circle
                             Circle cirle = CircleFactory.GetCircle();
@@ -352,6 +361,80 @@ namespace DrawShapesOfYouChoice
                             ITriangleOperation triangleOperation = TriangleOperationFactory.GetTriangleOperation();
                             triangleOperation.Draw(triangle);
                             logger.Info("Triangle drawn Successfully");
+                            break;
+
+                        case 5:
+                            //Hexagon
+                            Hexagon hexagon = HexagonFactory.GetHexagon();
+                           
+                            tryHexagon:
+                            int HexagonCentreXCoordinate = 0;
+                            int HexagonCentreYCoordinate = 0;
+                            int radiusOfHexagon = 0;
+
+
+                            //Centre of Hexagon
+                            Console.WriteLine("Enter the X coordinate of centre of hexagon");
+                            xHexagonCentreLabel:
+                            string xCoordinateOfCentreOfHexagon = Console.ReadLine();
+                            validPointCoordinate = NumberValidator.ValidateNumber(xCoordinateOfCentreOfHexagon);
+                            if (!validPointCoordinate)
+                            {
+                                logger.Error("x coordinate of centre of Hexagon is not valid");
+                                goto xHexagonCentreLabel;
+                            }
+                            else
+                            {
+                                HexagonCentreXCoordinate = int.Parse(xCoordinateOfCentreOfHexagon);
+                            }
+
+                            Console.WriteLine("Enter the Y coordinate of Centre of hexagon");
+                            yHexagonCentreLabel:
+                            string yCoordinateOfCentreOfHexagon = Console.ReadLine();
+                            validPointCoordinate = NumberValidator.ValidateNumber(yCoordinateOfCentreOfHexagon);
+                            if (!validPointCoordinate)
+                            {
+                                logger.Error("y coordinate of centre of Hexagon is not valid");
+                                goto yHexagonCentreLabel;
+                            }
+                            else
+                            {
+                                HexagonCentreYCoordinate = int.Parse(yCoordinateOfCentreOfHexagon);
+                            }
+
+                            //Radius of hexagon
+                            Console.WriteLine("Enter the radius of the hexagon.");
+                            radiusOfHexagonLabel:
+                            string hexagonRadius = Console.ReadLine();
+                            validPointCoordinate = NumberValidator.ValidateNumber(hexagonRadius);
+                            if (!validPointCoordinate)
+                            {
+                                logger.Error("radius of hexagon is not valid");
+                                goto radiusOfHexagonLabel;
+                            }
+                            else
+                            {
+                                radiusOfHexagon = int.Parse(hexagonRadius);
+                            }
+
+                            if (!(radiusOfHexagon <= Math.Min(HexagonCentreXCoordinate, HexagonCentreYCoordinate)))
+                            {
+                                logger.Error("radius should be less than or equal to the minimum of x and y coordinate of centre.");
+                                goto tryHexagon;
+                            }
+                            else
+                            {
+                                hexagon.pointOne = new Point(Convert.ToInt32(HexagonCentreXCoordinate - (radiusOfHexagon * Math.Sin(Math.PI/6))), Convert.ToInt32(HexagonCentreYCoordinate - (radiusOfHexagon * Math.Sin(Math.PI/3))));
+                                hexagon.pointTwo = new Point(Convert.ToInt32(HexagonCentreXCoordinate + radiusOfHexagon * Math.Sin(Math.PI / 6)), Convert.ToInt32(HexagonCentreYCoordinate - radiusOfHexagon * Math.Sin(Math.PI / 3)));
+                                hexagon.pointThree = new Point(HexagonCentreXCoordinate + radiusOfHexagon, HexagonCentreYCoordinate );
+                                hexagon.pointFour = new Point(Convert.ToInt32(HexagonCentreXCoordinate + radiusOfHexagon * Math.Sin(Math.PI / 6)), Convert.ToInt32(HexagonCentreYCoordinate + radiusOfHexagon * Math.Sin(Math.PI / 3)));
+                                hexagon.pointFive = new Point(Convert.ToInt32(HexagonCentreXCoordinate - radiusOfHexagon * Math.Sin(Math.PI / 6)), Convert.ToInt32(HexagonCentreYCoordinate + radiusOfHexagon * Math.Sin(Math.PI / 3)));
+                                hexagon.pointSix = new Point(HexagonCentreXCoordinate - radiusOfHexagon, HexagonCentreYCoordinate );
+                                IHexagonOperation hexagonOperation = HexagonOperationFactory.GetHexagonOperation();
+                                hexagonOperation.Draw(hexagon);
+
+                                logger.Info("Hexagon drawn Successfully");
+                            }
                             break;
 
                         }

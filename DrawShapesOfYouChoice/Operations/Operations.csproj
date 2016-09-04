@@ -42,7 +42,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CircleOperation.cs" />
+    <Compile Include="HexagonOperation.cs" />
     <Compile Include="ICircleOperation.cs" />
+    <Compile Include="IHexagonOperation.cs" />
     <Compile Include="IRectangleOperation.cs" />
     <Compile Include="ITriangleOperation.cs" />
     <Compile Include="LineOperation.cs" />
