@@ -20,25 +20,29 @@ namespace DrawShapesOfYouChoice
         private static readonly ILog logger = LogManager.GetLogger(typeof(DrawYourShapes));
         static void Main(string[] args)
         {
-                tryAgain:
-                Console.WriteLine("Enter you Choice !");
-                Console.WriteLine("1. Line");
-                Console.WriteLine("2. Rectangle");
-                Console.WriteLine("3. Circle");
-                Console.WriteLine("4. Triangle");
-                Console.WriteLine("5. Hexagon");
             try
+            {
+
+                do
                 {
+                tryAgain:
+                    Console.WriteLine("Enter you Choice !");
+                    Console.WriteLine("1. Line");
+                    Console.WriteLine("2. Rectangle");
+                    Console.WriteLine("3. Circle");
+                    Console.WriteLine("4. Triangle");
+                    Console.WriteLine("5. Hexagon");
+
                     XmlConfigurator.Configure();
                     int choice = 0;
                     bool validPointCoordinate = false;
                     bool validChoice = int.TryParse(Console.ReadLine(), out choice);
-                    
-                if(choice==0 || choice >5)
-                {
-                    logger.Error("Invalid choice");
-                    goto tryAgain;
-                }
+
+                    if (choice == 0 || choice > 5)
+                    {
+                        logger.Error("Invalid choice");
+                        goto tryAgain;
+                    }
 
 
 
@@ -57,7 +61,7 @@ namespace DrawShapesOfYouChoice
                                 Console.WriteLine("Enter the coordinates of first point");
 
                                 Console.WriteLine("Enter the positive x coordinate (number).");
-                                xCoordinatePointOneLabel:
+                            xCoordinatePointOneLabel:
                                 String xCoordinate = Console.ReadLine();
                                 validPointCoordinate = NumberValidator.ValidateNumber(xCoordinate);
                                 if (!validPointCoordinate)
@@ -71,7 +75,7 @@ namespace DrawShapesOfYouChoice
                                 }
 
                                 Console.WriteLine("Enter the positive y coordinate (number).");
-                                yCoordinatePointOneLabel:
+                            yCoordinatePointOneLabel:
                                 String yCoordinate = Console.ReadLine();
                                 validPointCoordinate = NumberValidator.ValidateNumber(yCoordinate);
                                 if (!validPointCoordinate)
@@ -88,7 +92,7 @@ namespace DrawShapesOfYouChoice
                                 Console.WriteLine("Enter the coordinates of second point");
 
                                 Console.WriteLine("Enter the positive x coordinate (number).");
-                                xCoordinatePointTwoLabel:
+                            xCoordinatePointTwoLabel:
                                 xCoordinate = Console.ReadLine();
                                 validPointCoordinate = NumberValidator.ValidateNumber(xCoordinate);
                                 if (!validPointCoordinate)
@@ -102,7 +106,7 @@ namespace DrawShapesOfYouChoice
                                 }
 
                                 Console.WriteLine("Enter the positive y coordinate (number).");
-                                yCoordinatePointTwoLabel:
+                            yCoordinatePointTwoLabel:
                                 yCoordinate = Console.ReadLine();
                                 validPointCoordinate = NumberValidator.ValidateNumber(yCoordinate);
                                 if (!validPointCoordinate)
@@ -130,7 +134,7 @@ namespace DrawShapesOfYouChoice
                                 Console.WriteLine("Enter the coordinates of first point");
 
                                 Console.WriteLine("Enter the positive x coordinate (number).");
-                                xCoordinateRectanglePointOneLabel:
+                            xCoordinateRectanglePointOneLabel:
                                 String xCoordinateOfRectangle = Console.ReadLine();
                                 validPointCoordinate = NumberValidator.ValidateNumber(xCoordinateOfRectangle);
                                 if (!validPointCoordinate)
@@ -144,7 +148,7 @@ namespace DrawShapesOfYouChoice
                                 }
 
                                 Console.WriteLine("Enter the positive y coordinate (number).");
-                                yCoordinateRectanglePointOneLabel:
+                            yCoordinateRectanglePointOneLabel:
                                 String yCoordinateOfRectangle = Console.ReadLine();
                                 validPointCoordinate = NumberValidator.ValidateNumber(yCoordinateOfRectangle);
                                 if (!validPointCoordinate)
@@ -161,7 +165,7 @@ namespace DrawShapesOfYouChoice
                                 Console.WriteLine("Enter the coordinates of second point");
 
                                 Console.WriteLine("Enter the positive x coordinate (number).");
-                                xCoordinateRectanglePointTwoLabel:
+                            xCoordinateRectanglePointTwoLabel:
                                 xCoordinateOfRectangle = Console.ReadLine();
                                 validPointCoordinate = NumberValidator.ValidateNumber(xCoordinateOfRectangle);
                                 if (!validPointCoordinate)
@@ -175,7 +179,7 @@ namespace DrawShapesOfYouChoice
                                 }
 
                                 Console.WriteLine("Enter the positive y coordinate (number).");
-                                yCoordinateRectanglePointTwoLabel:
+                            yCoordinateRectanglePointTwoLabel:
                                 yCoordinateOfRectangle = Console.ReadLine();
                                 validPointCoordinate = NumberValidator.ValidateNumber(yCoordinateOfRectangle);
                                 if (!validPointCoordinate)
@@ -196,246 +200,246 @@ namespace DrawShapesOfYouChoice
 
                             case 3:
 
-                            //Circle
-                            Circle cirle = CircleFactory.GetCircle();
+                                //Circle
+                                Circle cirle = CircleFactory.GetCircle();
                             tryCircle:
-                            float centreXCoordinate = 0;
-                            float centreYCoordinate = 0;
-                            float radiusOfCircle = 0;
+                                float centreXCoordinate = 0;
+                                float centreYCoordinate = 0;
+                                float radiusOfCircle = 0;
 
 
-                            //Centre of Circle
-                            Console.WriteLine("Enter the X coordinate of Centre");
+                                //Centre of Circle
+                                Console.WriteLine("Enter the X coordinate of Centre");
                             xCentreLabel:
-                            string xCoordinateOfCentre = Console.ReadLine();
-                            validPointCoordinate = NumberValidator.ValidateNumber(xCoordinateOfCentre);
-                            if (!validPointCoordinate)
-                            {
-                                logger.Error("x coordinate of centre is not valid");
-                                goto xCentreLabel;
-                            }
-                            else
-                            {
-                                centreXCoordinate = float.Parse(xCoordinateOfCentre);
-                            }
+                                string xCoordinateOfCentre = Console.ReadLine();
+                                validPointCoordinate = NumberValidator.ValidateNumber(xCoordinateOfCentre);
+                                if (!validPointCoordinate)
+                                {
+                                    logger.Error("x coordinate of centre is not valid");
+                                    goto xCentreLabel;
+                                }
+                                else
+                                {
+                                    centreXCoordinate = float.Parse(xCoordinateOfCentre);
+                                }
 
-                            Console.WriteLine("Enter the Y coordinate of Centre");
+                                Console.WriteLine("Enter the Y coordinate of Centre");
                             yCentreLabel:
-                            string yCoordinateOfCentre = Console.ReadLine();
-                            validPointCoordinate = NumberValidator.ValidateNumber(yCoordinateOfCentre);
-                            if (!validPointCoordinate)
-                            {
-                                logger.Error("y coordinate of centre is not valid");
-                                goto yCentreLabel;
-                            }
-                            else
-                            {
-                                centreYCoordinate = float.Parse(yCoordinateOfCentre);
-                            }
+                                string yCoordinateOfCentre = Console.ReadLine();
+                                validPointCoordinate = NumberValidator.ValidateNumber(yCoordinateOfCentre);
+                                if (!validPointCoordinate)
+                                {
+                                    logger.Error("y coordinate of centre is not valid");
+                                    goto yCentreLabel;
+                                }
+                                else
+                                {
+                                    centreYCoordinate = float.Parse(yCoordinateOfCentre);
+                                }
 
-                            //Radius
-                            Console.WriteLine("Enter the radius of the circle.");
+                                //Radius
+                                Console.WriteLine("Enter the radius of the circle.");
                             radiusLabel:
-                            string radius = Console.ReadLine();
-                            validPointCoordinate = NumberValidator.ValidateNumber(radius);
-                            if (!validPointCoordinate)
-                            {
-                                logger.Error("radius of circle is not valid");
-                                goto radiusLabel;
-                            }
-                            else
-                            {
-                                radiusOfCircle = float.Parse(radius);
-                            }
+                                string radius = Console.ReadLine();
+                                validPointCoordinate = NumberValidator.ValidateNumber(radius);
+                                if (!validPointCoordinate)
+                                {
+                                    logger.Error("radius of circle is not valid");
+                                    goto radiusLabel;
+                                }
+                                else
+                                {
+                                    radiusOfCircle = float.Parse(radius);
+                                }
 
-                            if (!(radiusOfCircle <= Math.Min(centreXCoordinate, centreYCoordinate)))
-                            {
-                                logger.Error("radius should be less than or equal to the minimum of x and y coordinate of centre.");
-                                goto tryCircle;
-                            }
-                            else
-                            {
+                                if (!(radiusOfCircle <= Math.Min(centreXCoordinate, centreYCoordinate)))
+                                {
+                                    logger.Error("radius should be less than or equal to the minimum of x and y coordinate of centre.");
+                                    goto tryCircle;
+                                }
+                                else
+                                {
 
-                                cirle.pointOneXCoordinate = centreXCoordinate - radiusOfCircle;
-                                cirle.pointOneYCoordinate = centreYCoordinate - radiusOfCircle;
-                                cirle.pointTwoXCoordinate = centreXCoordinate + radiusOfCircle;
-                                cirle.pointTwoYCoordinate = centreYCoordinate + radiusOfCircle;
-                                ICircleOperation circleOperation = CircleOperationFactory.GetCircleOperation();
-                                circleOperation.Draw(cirle);
-                                logger.Info("Circle drawn Successfully");
-                            }
-                            break;
+                                    cirle.pointOneXCoordinate = centreXCoordinate - radiusOfCircle;
+                                    cirle.pointOneYCoordinate = centreYCoordinate - radiusOfCircle;
+                                    cirle.pointTwoXCoordinate = centreXCoordinate + radiusOfCircle;
+                                    cirle.pointTwoYCoordinate = centreYCoordinate + radiusOfCircle;
+                                    ICircleOperation circleOperation = CircleOperationFactory.GetCircleOperation();
+                                    circleOperation.Draw(cirle);
+                                    logger.Info("Circle drawn Successfully");
+                                }
+                                break;
 
 
 
-                        case 4:
+                            case 4:
 
-                            //Triangle
-                            Triangle triangle = Trianglefactory.GetTriangle();
+                                //Triangle
+                                Triangle triangle = Trianglefactory.GetTriangle();
 
-                            //First point 
-                            Console.WriteLine("Enter the X coordinate of first point of the triangle");
+                                //First point 
+                                Console.WriteLine("Enter the X coordinate of first point of the triangle");
                             xCoordinateTrianglePointOneLabel:
-                            string xCoordinateOfPointOneOfTriangle = Console.ReadLine();
-                            validPointCoordinate = NumberValidator.ValidateNumber(xCoordinateOfPointOneOfTriangle);
-                            if(!validPointCoordinate)
-                            {
-                                logger.Error("X coordinate of first point of triangle is not valid");
-                                goto xCoordinateTrianglePointOneLabel;
-                            }
+                                string xCoordinateOfPointOneOfTriangle = Console.ReadLine();
+                                validPointCoordinate = NumberValidator.ValidateNumber(xCoordinateOfPointOneOfTriangle);
+                                if (!validPointCoordinate)
+                                {
+                                    logger.Error("X coordinate of first point of triangle is not valid");
+                                    goto xCoordinateTrianglePointOneLabel;
+                                }
 
-                 
-                            Console.WriteLine("Enter the Y coordinate of first point of the triangle");
+
+                                Console.WriteLine("Enter the Y coordinate of first point of the triangle");
                             yCoordinateTrianglePointOneLabel:
-                            string yCoordinateOfPointOneOfTriangle = Console.ReadLine();
-                            validPointCoordinate = NumberValidator.ValidateNumber(yCoordinateOfPointOneOfTriangle);
-                            if (!validPointCoordinate)
-                            {
-                                logger.Error("Y coordinate of first point of triangle is not valid");
-                                goto yCoordinateTrianglePointOneLabel;
-                            }
+                                string yCoordinateOfPointOneOfTriangle = Console.ReadLine();
+                                validPointCoordinate = NumberValidator.ValidateNumber(yCoordinateOfPointOneOfTriangle);
+                                if (!validPointCoordinate)
+                                {
+                                    logger.Error("Y coordinate of first point of triangle is not valid");
+                                    goto yCoordinateTrianglePointOneLabel;
+                                }
 
-                            if(validPointCoordinate)
-                            {
-                                triangle.pointOne = new Point(int.Parse(xCoordinateOfPointOneOfTriangle),int.Parse(yCoordinateOfPointOneOfTriangle));
-                            }
+                                if (validPointCoordinate)
+                                {
+                                    triangle.pointOne = new Point(int.Parse(xCoordinateOfPointOneOfTriangle), int.Parse(yCoordinateOfPointOneOfTriangle));
+                                }
 
 
 
-                            //Second point 
-                            Console.WriteLine("Enter the X coordinate of second point of the triangle");
+                                //Second point 
+                                Console.WriteLine("Enter the X coordinate of second point of the triangle");
                             xCoordinateTrianglePointTwoLabel:
-                            string xCoordinateOfPointTwoOfTriangle = Console.ReadLine();
-                            validPointCoordinate = NumberValidator.ValidateNumber(xCoordinateOfPointTwoOfTriangle);
-                            if (!validPointCoordinate)
-                            {
-                                logger.Error("X coordinate of second point of triangle is not valid");
-                                goto xCoordinateTrianglePointTwoLabel;
-                            }
+                                string xCoordinateOfPointTwoOfTriangle = Console.ReadLine();
+                                validPointCoordinate = NumberValidator.ValidateNumber(xCoordinateOfPointTwoOfTriangle);
+                                if (!validPointCoordinate)
+                                {
+                                    logger.Error("X coordinate of second point of triangle is not valid");
+                                    goto xCoordinateTrianglePointTwoLabel;
+                                }
 
 
-                            Console.WriteLine("Enter the Y coordinate of second point of the triangle");
+                                Console.WriteLine("Enter the Y coordinate of second point of the triangle");
                             yCoordinateTrianglePointTwoLabel:
-                            string yCoordinateOfPointTwoOfTriangle = Console.ReadLine();
-                            validPointCoordinate = NumberValidator.ValidateNumber(yCoordinateOfPointTwoOfTriangle);
-                            if (!validPointCoordinate)
-                            {
-                                logger.Error("Y coordinate of second point of triangle is not valid");
-                                goto yCoordinateTrianglePointTwoLabel;
-                            }
+                                string yCoordinateOfPointTwoOfTriangle = Console.ReadLine();
+                                validPointCoordinate = NumberValidator.ValidateNumber(yCoordinateOfPointTwoOfTriangle);
+                                if (!validPointCoordinate)
+                                {
+                                    logger.Error("Y coordinate of second point of triangle is not valid");
+                                    goto yCoordinateTrianglePointTwoLabel;
+                                }
 
-                            if (validPointCoordinate)
-                            {
-                                triangle.pointTwo = new Point(int.Parse(xCoordinateOfPointTwoOfTriangle), int.Parse(yCoordinateOfPointTwoOfTriangle));
-                            }
+                                if (validPointCoordinate)
+                                {
+                                    triangle.pointTwo = new Point(int.Parse(xCoordinateOfPointTwoOfTriangle), int.Parse(yCoordinateOfPointTwoOfTriangle));
+                                }
 
 
 
-                            //Three point 
-                            Console.WriteLine("Enter the X coordinate of third point of the triangle");
+                                //Three point 
+                                Console.WriteLine("Enter the X coordinate of third point of the triangle");
                             xCoordinateTrianglePointThreeLabel:
-                            string xCoordinateOfPointThreeOfTriangle = Console.ReadLine();
-                            validPointCoordinate = NumberValidator.ValidateNumber(xCoordinateOfPointThreeOfTriangle);
-                            if (!validPointCoordinate)
-                            {
-                                logger.Error("X coordinate of third point of triangle is not valid");
-                                goto xCoordinateTrianglePointThreeLabel;
-                            }
+                                string xCoordinateOfPointThreeOfTriangle = Console.ReadLine();
+                                validPointCoordinate = NumberValidator.ValidateNumber(xCoordinateOfPointThreeOfTriangle);
+                                if (!validPointCoordinate)
+                                {
+                                    logger.Error("X coordinate of third point of triangle is not valid");
+                                    goto xCoordinateTrianglePointThreeLabel;
+                                }
 
 
-                            Console.WriteLine("Enter the Y coordinate of third point of the triangle");
+                                Console.WriteLine("Enter the Y coordinate of third point of the triangle");
                             yCoordinateTrianglePointThreeLabel:
-                            string yCoordinateOfPointThreeOfTriangle = Console.ReadLine();
-                            validPointCoordinate = NumberValidator.ValidateNumber(yCoordinateOfPointThreeOfTriangle);
-                            if (!validPointCoordinate)
-                            {
-                                logger.Error("Y coordinate of third point of triangle is not valid");
-                                goto yCoordinateTrianglePointThreeLabel;
-                            }
+                                string yCoordinateOfPointThreeOfTriangle = Console.ReadLine();
+                                validPointCoordinate = NumberValidator.ValidateNumber(yCoordinateOfPointThreeOfTriangle);
+                                if (!validPointCoordinate)
+                                {
+                                    logger.Error("Y coordinate of third point of triangle is not valid");
+                                    goto yCoordinateTrianglePointThreeLabel;
+                                }
 
-                            if (validPointCoordinate)
-                            {
-                                triangle.pointThree = new Point(int.Parse(xCoordinateOfPointThreeOfTriangle), int.Parse(yCoordinateOfPointThreeOfTriangle));
-                            }
-                            
-                            ITriangleOperation triangleOperation = TriangleOperationFactory.GetTriangleOperation();
-                            triangleOperation.Draw(triangle);
-                            logger.Info("Triangle drawn Successfully");
-                            break;
+                                if (validPointCoordinate)
+                                {
+                                    triangle.pointThree = new Point(int.Parse(xCoordinateOfPointThreeOfTriangle), int.Parse(yCoordinateOfPointThreeOfTriangle));
+                                }
 
-                        case 5:
-                            //Hexagon
-                            Hexagon hexagon = HexagonFactory.GetHexagon();
-                           
+                                ITriangleOperation triangleOperation = TriangleOperationFactory.GetTriangleOperation();
+                                triangleOperation.Draw(triangle);
+                                logger.Info("Triangle drawn Successfully");
+                                break;
+
+                            case 5:
+                                //Hexagon
+                                Hexagon hexagon = HexagonFactory.GetHexagon();
+
                             tryHexagon:
-                            int HexagonCentreXCoordinate = 0;
-                            int HexagonCentreYCoordinate = 0;
-                            int radiusOfHexagon = 0;
+                                int HexagonCentreXCoordinate = 0;
+                                int HexagonCentreYCoordinate = 0;
+                                int radiusOfHexagon = 0;
 
 
-                            //Centre of Hexagon
-                            Console.WriteLine("Enter the X coordinate of centre of hexagon");
+                                //Centre of Hexagon
+                                Console.WriteLine("Enter the X coordinate of centre of hexagon");
                             xHexagonCentreLabel:
-                            string xCoordinateOfCentreOfHexagon = Console.ReadLine();
-                            validPointCoordinate = NumberValidator.ValidateNumber(xCoordinateOfCentreOfHexagon);
-                            if (!validPointCoordinate)
-                            {
-                                logger.Error("x coordinate of centre of Hexagon is not valid");
-                                goto xHexagonCentreLabel;
-                            }
-                            else
-                            {
-                                HexagonCentreXCoordinate = int.Parse(xCoordinateOfCentreOfHexagon);
-                            }
+                                string xCoordinateOfCentreOfHexagon = Console.ReadLine();
+                                validPointCoordinate = NumberValidator.ValidateNumber(xCoordinateOfCentreOfHexagon);
+                                if (!validPointCoordinate)
+                                {
+                                    logger.Error("x coordinate of centre of Hexagon is not valid");
+                                    goto xHexagonCentreLabel;
+                                }
+                                else
+                                {
+                                    HexagonCentreXCoordinate = int.Parse(xCoordinateOfCentreOfHexagon);
+                                }
 
-                            Console.WriteLine("Enter the Y coordinate of Centre of hexagon");
+                                Console.WriteLine("Enter the Y coordinate of Centre of hexagon");
                             yHexagonCentreLabel:
-                            string yCoordinateOfCentreOfHexagon = Console.ReadLine();
-                            validPointCoordinate = NumberValidator.ValidateNumber(yCoordinateOfCentreOfHexagon);
-                            if (!validPointCoordinate)
-                            {
-                                logger.Error("y coordinate of centre of Hexagon is not valid");
-                                goto yHexagonCentreLabel;
-                            }
-                            else
-                            {
-                                HexagonCentreYCoordinate = int.Parse(yCoordinateOfCentreOfHexagon);
-                            }
+                                string yCoordinateOfCentreOfHexagon = Console.ReadLine();
+                                validPointCoordinate = NumberValidator.ValidateNumber(yCoordinateOfCentreOfHexagon);
+                                if (!validPointCoordinate)
+                                {
+                                    logger.Error("y coordinate of centre of Hexagon is not valid");
+                                    goto yHexagonCentreLabel;
+                                }
+                                else
+                                {
+                                    HexagonCentreYCoordinate = int.Parse(yCoordinateOfCentreOfHexagon);
+                                }
 
-                            //Radius of hexagon
-                            Console.WriteLine("Enter the radius of the hexagon.");
+                                //Radius of hexagon
+                                Console.WriteLine("Enter the radius of the hexagon.");
                             radiusOfHexagonLabel:
-                            string hexagonRadius = Console.ReadLine();
-                            validPointCoordinate = NumberValidator.ValidateNumber(hexagonRadius);
-                            if (!validPointCoordinate)
-                            {
-                                logger.Error("radius of hexagon is not valid");
-                                goto radiusOfHexagonLabel;
-                            }
-                            else
-                            {
-                                radiusOfHexagon = int.Parse(hexagonRadius);
-                            }
+                                string hexagonRadius = Console.ReadLine();
+                                validPointCoordinate = NumberValidator.ValidateNumber(hexagonRadius);
+                                if (!validPointCoordinate)
+                                {
+                                    logger.Error("radius of hexagon is not valid");
+                                    goto radiusOfHexagonLabel;
+                                }
+                                else
+                                {
+                                    radiusOfHexagon = int.Parse(hexagonRadius);
+                                }
 
-                            if (!(radiusOfHexagon <= Math.Min(HexagonCentreXCoordinate, HexagonCentreYCoordinate)))
-                            {
-                                logger.Error("radius should be less than or equal to the minimum of x and y coordinate of centre.");
-                                goto tryHexagon;
-                            }
-                            else
-                            {
-                                hexagon.pointOne = new Point(Convert.ToInt32(HexagonCentreXCoordinate - (radiusOfHexagon * Math.Sin(Math.PI/6))), Convert.ToInt32(HexagonCentreYCoordinate - (radiusOfHexagon * Math.Sin(Math.PI/3))));
-                                hexagon.pointTwo = new Point(Convert.ToInt32(HexagonCentreXCoordinate + radiusOfHexagon * Math.Sin(Math.PI / 6)), Convert.ToInt32(HexagonCentreYCoordinate - radiusOfHexagon * Math.Sin(Math.PI / 3)));
-                                hexagon.pointThree = new Point(HexagonCentreXCoordinate + radiusOfHexagon, HexagonCentreYCoordinate );
-                                hexagon.pointFour = new Point(Convert.ToInt32(HexagonCentreXCoordinate + radiusOfHexagon * Math.Sin(Math.PI / 6)), Convert.ToInt32(HexagonCentreYCoordinate + radiusOfHexagon * Math.Sin(Math.PI / 3)));
-                                hexagon.pointFive = new Point(Convert.ToInt32(HexagonCentreXCoordinate - radiusOfHexagon * Math.Sin(Math.PI / 6)), Convert.ToInt32(HexagonCentreYCoordinate + radiusOfHexagon * Math.Sin(Math.PI / 3)));
-                                hexagon.pointSix = new Point(HexagonCentreXCoordinate - radiusOfHexagon, HexagonCentreYCoordinate );
-                                IHexagonOperation hexagonOperation = HexagonOperationFactory.GetHexagonOperation();
-                                hexagonOperation.Draw(hexagon);
+                                if (!(radiusOfHexagon <= Math.Min(HexagonCentreXCoordinate, HexagonCentreYCoordinate)))
+                                {
+                                    logger.Error("radius should be less than or equal to the minimum of x and y coordinate of centre.");
+                                    goto tryHexagon;
+                                }
+                                else
+                                {
+                                    hexagon.pointOne = new Point(Convert.ToInt32(HexagonCentreXCoordinate - (radiusOfHexagon * Math.Sin(Math.PI / 6))), Convert.ToInt32(HexagonCentreYCoordinate - (radiusOfHexagon * Math.Sin(Math.PI / 3))));
+                                    hexagon.pointTwo = new Point(Convert.ToInt32(HexagonCentreXCoordinate + radiusOfHexagon * Math.Sin(Math.PI / 6)), Convert.ToInt32(HexagonCentreYCoordinate - radiusOfHexagon * Math.Sin(Math.PI / 3)));
+                                    hexagon.pointThree = new Point(HexagonCentreXCoordinate + radiusOfHexagon, HexagonCentreYCoordinate);
+                                    hexagon.pointFour = new Point(Convert.ToInt32(HexagonCentreXCoordinate + radiusOfHexagon * Math.Sin(Math.PI / 6)), Convert.ToInt32(HexagonCentreYCoordinate + radiusOfHexagon * Math.Sin(Math.PI / 3)));
+                                    hexagon.pointFive = new Point(Convert.ToInt32(HexagonCentreXCoordinate - radiusOfHexagon * Math.Sin(Math.PI / 6)), Convert.ToInt32(HexagonCentreYCoordinate + radiusOfHexagon * Math.Sin(Math.PI / 3)));
+                                    hexagon.pointSix = new Point(HexagonCentreXCoordinate - radiusOfHexagon, HexagonCentreYCoordinate);
+                                    IHexagonOperation hexagonOperation = HexagonOperationFactory.GetHexagonOperation();
+                                    hexagonOperation.Draw(hexagon);
 
-                                logger.Info("Hexagon drawn Successfully");
-                            }
-                            break;
+                                    logger.Info("Hexagon drawn Successfully");
+                                }
+                                break;
 
                         }
                     }
@@ -444,13 +448,13 @@ namespace DrawShapesOfYouChoice
                         logger.Error("Invalid Choice");
                         goto tryAgain;
                     }
-
+                    Console.WriteLine("Do you want to continue ? (press n for No)");
+                } while (Console.ReadLine() != "n");
                 }
-
-                catch (Exception ae)
-                {
-                    logger.Error(ae.Message);
-                }
+            catch (Exception ae)
+            {
+                logger.Error(ae.Message);
+            }
            
         }
     }
